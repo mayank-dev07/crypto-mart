@@ -35,10 +35,21 @@
 			membershipExceptions = (
 				Assets.xcassets,
 				ContentView.swift,
+				Core/Components/CircleButton/CircleButtonAnimationView.swift,
 				Core/Components/CircleButton/CircleButtonView.swift,
+				Core/Components/CoinImage/CoinImageView.swift,
+				Core/Components/SearchBarView.swift,
+				Core/Home/ViewModels/HomeViewModel.swift,
+				Core/Home/Views/CoinRowView.swift,
 				Core/Home/Views/HomeView.swift,
 				Extensions/Color.swift,
+				Extensions/Double.swift,
+				Extensions/PreviewProvider.swift,
+				Models/CoinModel.swift,
+				Services/CoinDataService.swift,
+				Services/CoinImageService.swift,
 				tradingApp.swift,
+				Utils/NetworkingManager.swift,
 			);
 			target = 5D28AD622E1C4E60006AD156 /* trading */;
 		};
@@ -48,6 +59,8 @@
 				Assets.xcassets,
 				ContentView.swift,
 				Extensions/Color.swift,
+				Extensions/Double.swift,
+				Extensions/PreviewProvider.swift,
 				tradingApp.swift,
 			);
 			target = 5D28AD792E1C4E62006AD156 /* tradingUITests */;
