@@ -50,6 +50,7 @@
 				Services/CoinImageService.swift,
 				tradingApp.swift,
 				Utils/NetworkingManager.swift,
+				WebViewOctasol.swift,
 			);
 			target = 5D28AD622E1C4E60006AD156 /* trading */;
 		};
@@ -62,6 +63,7 @@
 				Extensions/Double.swift,
 				Extensions/PreviewProvider.swift,
 				tradingApp.swift,
+				WebViewOctasol.swift,
 			);
 			target = 5D28AD792E1C4E62006AD156 /* tradingUITests */;
 		};
