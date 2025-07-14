@@ -14,7 +14,7 @@ struct HomeView: View {
     
     var body: some View {
         
-//        WebViewOctasol(url:"https://octasol.io")
+//        WebViewOctasol(url:"http://localhost:5173")
 
         
         ZStack {
@@ -24,6 +24,15 @@ struct HomeView: View {
 
             VStack {
                 homeHeader
+                if !showPortfolio {
+                    HomeStatView(showPortfolio: $showPortfolio)
+                    .transition(.move(edge: .leading))
+                }
+                else {
+                    HomeStatView(showPortfolio: $showPortfolio)
+                    .transition(.move(edge: .trailing))
+                }
+                
                 SearchBarView(searchText: $vm.searchText)
                 HStack {
                     Text("Coin")
@@ -56,14 +65,12 @@ struct HomeView: View {
 }
 
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            HomeView()
-                .navigationBarHidden(true)
-        }
-        .environmentObject(dev.homeVM)
+#Preview("Home View") {
+    NavigationView {
+        HomeView()
+            .navigationBarHidden(true)
     }
+    .environmentObject(DeveloperPreview.instance.homeVM)
 }
 
 extension HomeView  {
