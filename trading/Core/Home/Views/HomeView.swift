@@ -11,16 +11,19 @@ struct HomeView: View {
     
     @EnvironmentObject private var vm: HomeViewModel
     @State private var showPortfolio: Bool = false
+    @State private var showPortfolioView: Bool = false
     
     var body: some View {
-        
-//        WebViewOctasol(url:"http://localhost:5173")
 
         
         ZStack {
             
             Color.theme.background
                 .ignoresSafeArea()
+                .sheet(isPresented: $showPortfolioView, content: {
+                    PortfolioView(isPresented: $showPortfolioView)
+                        .environmentObject(vm)
+                })
 
             VStack {
                 homeHeader
@@ -77,7 +80,12 @@ extension HomeView  {
     
     private var homeHeader: some View {
         HStack {
-            CircleButtonView(iconName: showPortfolio ? "info" : "plus")
+            CircleButtonView(iconName: showPortfolio ? "plus" : "info")
+                .onTapGesture {
+                    if showPortfolio {
+                        showPortfolioView = true
+                    }
+                }
                 .background(
                     CircleButtonAnimationView(animate: $showPortfolio)
                 )
@@ -112,7 +120,7 @@ extension HomeView  {
     
     private var portfolioCoinList: some View {
         List{
-            ForEach(vm.allCoins){
+            ForEach(vm.portfolioCoins){
                 coin in CoinRowView(coin: coin, showHoldingColumn: true)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
             }

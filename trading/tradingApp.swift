@@ -18,8 +18,7 @@ struct tradingApp: App {
                 HomeView()
                     .navigationBarHidden(true)
             }
-            .environmentObject(vm)
-            
+            .environmentObject(vm) 
         }
     }
 }
